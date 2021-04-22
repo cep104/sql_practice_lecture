@@ -1,15 +1,28 @@
 # return all heroes
+SELECT * FROM heroes;
 
 # return the oldest hero
+    #sort the data 
+    #limit
+SELECT heroes.name 
+FROM heroes
+ORDER BY heroes.created ASC
+LIMIT 1;
 
 # return all heroes in order by created year, most recent first
+SELECT heroes.name, heroes.created
+FROM heroes
+ORDER BY heroes.created ASC
+LIMIT 1;
 
-# return song names and their associated genres
-# join two tables: songs and genres table
 
 # return count of heroes in each franchise
 # which table? 
-
+SELECT franchise.name, COUNT(franchise.id)
+FROM franchises
+INNER JOIN heroes 
+ON franchises.id = heroes.franchise_id
+GROUP BY franchise.name;
 # return ordered list of franchises by number of heroes, highest to lowest
 
 # return the franchise with the most number of heroes
